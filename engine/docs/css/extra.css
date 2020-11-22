@@ -1,0 +1,20 @@
+.wy-side-nav-search{
+	background-color: #30CC05;
+}
+.wy-side-nav-search input[type="text"]{
+	border-color: #1B7103;
+}
+
+.wy-plain-list-disc li, .rst-content .section ul li, .rst-content .toctree-wrapper ul li, article ul li{
+	list-style: none;
+	margin-left: 0px;
+}
+
+.rst-content code {
+	color: #000;
+	padding: 6px;
+	width: 100%;
+	display: inline-block;
+	background-color: #f8f8f8;
+	font-size: 14px;
+}

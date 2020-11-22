@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Core Classes - 2DOT Game Engine</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  <link href="../css/extra.css" rel="stylesheet" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Core Classes";
+    var mkdocs_page_input_path = "core-classes.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> 2DOT Game Engine</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Notes</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../release-notes/">Release Notes</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">API Reference</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../engine-general/">Engine General</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Core Classes</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#enginecoreanimation">engine.core.Animation</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#variables">Variables</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#methods">Methods</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#enginecorecamera">engine.core.Camera</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#variables_1">Variables</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#methods_1">Methods</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#enginecorecomponent">engine.core.Component</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#variables_2">Variables</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#enginecoreentity">engine.core.Entity</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#variables_3">Variables</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#methods_2">Methods</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#enginecoregamemap">engine.core.GameMap</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#variables_4">Variables</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#methods_3">Methods</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#enginecoreparticle">engine.core.Particle</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#variables_5">Variables</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#methods_4">Methods</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#enginecoreparticlerenderer">engine.core.ParticleRenderer</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#variables_6">Variables</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#methods_5">Methods</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#enginecorescene">engine.core.Scene</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#variables_7">Variables</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#methods_6">Methods</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#enginecoresprite">engine.core.Sprite</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#variables_8">Variables</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#methods_7">Methods</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#enginecoretext">engine.core.Text</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#variables_9">Variables</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#methods_8">Methods</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#enginecoretilemap">engine.core.Tilemap</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#variables_10">Variables</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#methods_9">Methods</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#enginecoretimer">engine.core.Timer</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#variables_11">Variables</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#methods_10">Methods</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">2DOT Game Engine</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>API Reference &raquo;</li>
+        
+      
+    
+    <li>Core Classes</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="core">Core</h1>
+<h2 id="enginecoreanimation">engine.core.Animation</h2>
+<pre><code>__init__(self, frames : list, speed : float, destroy_in_last_frame : bool [False], convert_alpha : bool [False])
+</code></pre>
+<h4 id="variables">Variables</h4>
+<p><code>frames : list</code>
+<code>speed : float</code>
+<code>destroy_in_last_frame : bool</code>
+<code>convert_alpha : bool</code>
+<code>destroyed : bool</code></p>
+<h4 id="methods">Methods</h4>
+<p><code>run()</code>
+<code>restore()</code></p>
+<hr />
+<h2 id="enginecorecamera">engine.core.Camera</h2>
+<pre><code>__init__(self, width : int, height : int, screen_width : int, screen_height : int, lerp : float [1.0], limit_x : bool [True], limit_y : bool [True])
+</code></pre>
+<h4 id="variables_1">Variables</h4>
+<p><code>type : str</code>
+<code>width : int</code>
+<code>height : int</code>
+<code>screen_width : int</code>
+<code>screen_height : int</code>
+<code>lerp : float</code>
+<code>limit_x : bool</code>
+<code>limit_y : bool</code></p>
+<h4 id="methods_1">Methods</h4>
+<p><code>update(entity : engine.core.Entity | engine.core.Sprite)</code>
+<code>apply(entity : engine.core.Entity | engine.core.Sprite)</code>
+<code>applyRect(rect : pygame.Rect)</code></p>
+<hr />
+<h2 id="enginecorecomponent">engine.core.Component</h2>
+<pre><code>__init__(self, name : str)
+</code></pre>
+<h4 id="variables_2">Variables</h4>
+<p><code>type : str</code>
+<code>object : engine.core.Entity [None]</code>
+<code>name : str</code></p>
+<hr />
+<h2 id="enginecoreentity">engine.core.Entity</h2>
+<pre><code>__init__(self, group : pygame.sprite.Group [None], name : str ["Entity"], posX : int [0], posY : int [0], scaleX : int [32], scaleY : int [32])
+</code></pre>
+<h4 id="variables_3">Variables</h4>
+<p><code>type : str</code>
+<code>name : str</code>
+<code>visible : bool</code>
+<code>properties : list</code>
+<code>components : dict</code>
+<code>parents : dict</code>
+<code>position : pygame.math.Vector2</code>
+<code>scale : pygame.math.Vector2</code>
+<code>image : pygame.Surface</code>
+<code>rect: pygame.Rect</code></p>
+<h4 id="methods_2">Methods</h4>
+<p><code>addComponent(component : engine.core.Component)</code>
+<code>getComponent(component : str) -&gt; engine.core.Component</code>
+<code>hasComponent(component : engine.core.Component) -&gt; bool</code>
+<code>updateComponents()</code>
+<code>move(vector2 : pygame.math.Vector2)</code>
+<code>updateParentPosition()</code>
+<code>parent(entity : engine.core.Entity, distanceX : int, distanceY : int)</code>
+<code>setPosition(vector2 : pygame.math.Vector2)</code>
+<code>setPositionX(value : int)</code>
+<code>setPositionY(value : int)</code>
+<code>setVisible(value : bool)</code>
+<code>getPosition() -&gt; pygame.math.Vector2</code>
+<code>getPositionX() -&gt; int</code>
+<code>getPositionY() -&gt; int</code>
+<code>getScale() -&gt; pygame.math.Vector2</code>
+<code>getScaleX() -&gt; int</code>
+<code>getScale() -&gt; int</code>
+<code>getDistanceTo(entity : engine.core.Entity) -&gt; pygame.math.Vector2</code>
+<code>getDirectionTo(entity : engine.core.Entity) -&gt; pygame.math.Vector2</code></p>
+<hr />
+<h2 id="enginecoregamemap">engine.core.GameMap</h2>
+<pre><code>__init__(self, tilemap : engine.core.Tilemap)
+</code></pre>
+<h4 id="variables_4">Variables</h4>
+<p><code>type : str</code>
+<code>tilemap : engine.core.Tilemap</code>
+<code>image : pygame.Surface [None]</code>
+<code>rect : pygame.Rect [None]</code></p>
+<h4 id="methods_3">Methods</h4>
+<p><code>build(build_obstacles : bool [False], remove_background : bool [False])</code>
+<code>render(surface : pygame.Surface, camera : engine.core.Camera [None])</code></p>
+<hr />
+<h2 id="enginecoreparticle">engine.core.Particle</h2>
+<pre><code>__init__(self, posX : int [0], posY : int [0], color : tuple [(255,255,255)], random_color : list of tuple [None], min_speed_x : int [-5], max_speed_x : int [5], min_speed_y : int [-2], max_speed_y : int [2], min_radius : int [5], max_radius : int [7], gravity : float [0.0], spawn_delay : float [0.0], max_particles : int [0], start_on_play : bool [True])
+</code></pre>
+<h4 id="variables_5">Variables</h4>
+<p><code>type : str</code>
+<code>particles : list</code>
+<code>x : int</code>
+<code>y : int</code>
+<code>color : tuple (255,255,255)</code>
+<code>ramdom_color : list [None]</code>
+<code>min_speed_x : int</code>
+<code>max_speed_x : int</code>
+<code>min_speed_y : int</code>
+<code>max_speed_y : int</code>
+<code>min_radius : int</code>
+<code>max_radius : int</code>
+<code>gravity : float</code>
+<code>spawn_delay : float</code>
+<code>max_particles : int</code>
+<code>start_on_play : bool</code>
+<code>destroyed : bool</code>
+<code>instancieds : int</code></p>
+<h4 id="methods_4">Methods</h4>
+<p><code>update()</code>
+<code>render(surface : pygame.Surface, camera : engine.core.Camera [None])</code>
+<code>new()</code>
+<code>end()</code></p>
+<hr />
+<h2 id="enginecoreparticlerenderer">engine.core.ParticleRenderer</h2>
+<pre><code>__init__(self)
+</code></pre>
+<h4 id="variables_6">Variables</h4>
+<p><code>particles : list</code></p>
+<h4 id="methods_5">Methods</h4>
+<p><code>add(particle : engine.core.Particle)</code>
+<code>update()</code>
+<code>render(surface : pygame.Surface, camera : engine.core.Camera [None])</code></p>
+<hr />
+<h2 id="enginecorescene">engine.core.Scene</h2>
+<pre><code>__init__(self, display : pygame.Surface, width : int, height : int, name : str ["Scene"], adjust_surface : bool [False])
+</code></pre>
+<h4 id="variables_7">Variables</h4>
+<p><code>type : str</code>
+<code>name : str</code>
+<code>surface : pygame.Surface</code></p>
+<h4 id="methods_6">Methods</h4>
+<p><code>add(entity : engine.core.Entity | engine.core.Sprite)</code>
+<code>remove(entity : engine.core.Entity | engine.core.Sprite)</code>
+<code>has(entity : engine.core.Entity | engine.core.Sprite) -&gt; bool</code>
+<code>getObjects() -&gt; list</code>
+<code>update()</code>
+<code>render(camera : engine.core.Camera [None]</code></p>
+<hr />
+<h2 id="enginecoresprite">engine.core.Sprite</h2>
+<pre><code>__init__(self, group : pygame.sprite.Group [None], name : str ["Entity"], image_path : str [None], posX : int [0], posY : int [0], scaleX : int [32], scaleY : int [32])
+</code></pre>
+<h4 id="variables_8">Variables</h4>
+<p><code>type : str</code>
+<code>name : str</code>
+<code>flipX : bool</code>
+<code>flipY : bool</code>
+<code>visible : bool</code>
+<code>position : pygame.math.Vector2</code>
+<code>scale : pygame.math.Vector2</code>
+<code>parents : dict</code>
+<code>image : pygame.Surface</code>
+<code>rect : pygame.Rect</code></p>
+<h4 id="methods_7">Methods</h4>
+<p><code>setImage(image : pygame.Surface)</code>
+<code>setFlip(flipX : bool, flipY : bool)</code>
+<code>move(vector2 : pygame.math.Vector2)</code>
+<code>parent(entity : engine.core.Entity, distanceX : int, distanceY : int)</code>
+<code>setPosition(vector2 : pygame.math.Vector2)</code>
+<code>setPositionX(value : int)</code>
+<code>setPositionY(value : int)</code>
+<code>setVisible(value : bool)</code>
+<code>getPosition() -&gt; pygame.math.Vector2</code>
+<code>getPositionX() -&gt; int</code>
+<code>getPositionY() -&gt; int</code>
+<code>getScale() -&gt; pygame.math.Vector2</code>
+<code>getScaleX() -&gt; int</code>
+<code>getScale() -&gt; int</code>
+<code>updateParentPosition()</code></p>
+<hr />
+<h2 id="enginecoretext">engine.core.Text</h2>
+<pre><code>__init__(self, font_path : str, size : int, text : str, antialias : bool [False], bold : bool [False], italic : bool [False], color : tuple [(255,255,255)], position : pygame.math.Vector2 [pygame.math.Vector2(0,0)])
+</code></pre>
+<h4 id="variables_9">Variables</h4>
+<p><code>type : str</code>
+<code>font_path : str</code>
+<code>size : int</code>
+<code>text : str</code>
+<code>antialias : bool</code>
+<code>bold : bool</code>
+<code>italic : bool</code>
+<code>color : tuple</code>
+<code>position : pygame.math.Vector2</code></p>
+<h4 id="methods_8">Methods</h4>
+<p><code>render(surface : pygame.Surface)</code></p>
+<hr />
+<h2 id="enginecoretilemap">engine.core.Tilemap</h2>
+<pre><code>__init__(self, file_path : str, obstacles_group : pygame.sprite.Group [None], ramps_group : pygame.sprite.Group [None])
+</code></pre>
+<h4 id="variables_10">Variables</h4>
+<p><code>type : str</code>
+<code>width : int</code>
+<code>height : int</code>
+<code>tmxdata : pytmx.pytmx.TiledMap</code>
+<code>obstacles_group : pygame.sprite.Group</code>
+<code>ramps_group : pygame.sprite.Group</code></p>
+<h4 id="methods_9">Methods</h4>
+<p><code>render(surface : pygame.Surface, camera : engine.core.Camera [None])</code>
+<code>makeMap() -&gt; pygame.Surface</code>
+<code>makeObstacles()</code></p>
+<hr />
+<h2 id="enginecoretimer">engine.core.Timer</h2>
+<p><strong>init</strong>(self)</p>
+<h4 id="variables_11">Variables</h4>
+<p><code>lastTime : float</code>
+<code>isPaused : bool</code>
+<code>goPause : bool</code>
+<code>timePaused : 0.0</code></p>
+<h4 id="methods_10">Methods</h4>
+<p><code>getTimer() -&gt; float</code>
+<code>pauseTimer()</code>
+<code>resumeTimer()</code>
+<code>resetTimer()</code></p>
+<hr />
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="../engine-general/" class="btn btn-neutral" title="Engine General"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../engine-general/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
